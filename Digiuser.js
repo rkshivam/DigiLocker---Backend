@@ -15,12 +15,14 @@ const mongoschema = new mongoose.Schema({
     },
     gender:{
         type:String,
-        enum : ["Female","Male","Other"]
+        enum : ["Female","Male","Other"]  // gender isme se hona hoga wrna validation error aayega
     },
     email:{
         type:String,
         required:true,
-        unique:true
+        unique:true,
+        trim:true,   // remove faltu spaces from email to protect it form duplicacy
+        lowercase:true
     },
     password:{
         type:String,
@@ -30,7 +32,7 @@ const mongoschema = new mongoose.Schema({
         type:String
     }
 
-})
+},{timestamps:true})
 
 const User = mongoose.model("User",mongoschema);
 module.exports = User;
