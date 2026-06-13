@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 async function DigiDB() {
     try{
-    await mongoose.connect("mongodb+srv://rkshivam2004:satyam2004@climate.9edxsbh.mongodb.net/DigiLocker");
+    await mongoose.connect(process.env.DB_CONNECTION);
     console.log("DB CONNECTION SUCCESSFULLY");
     }
     catch(err){
